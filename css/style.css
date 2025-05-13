@@ -149,7 +149,7 @@ nav ul>li>a:hover {
     margin: 0 auto;
     background: url(../images/banner1.png) no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: center -225px;/* 垂直向下偏移 50px */
     width: 100%;
     /* 设置最小宽度为 1100px */
 }
@@ -205,7 +205,7 @@ nav ul>li>a:hover {
     float: right;
     width: 200px;
     height: auto;
-    margin-right: 150px;
+    margin-right: -220px;
     margin-top: 100px;
     position: relative;
     /* 关键：为了让遮罩层定位在图片上 */
@@ -504,13 +504,14 @@ footer {
 }
 
 .banner2 {
-    width: 1200px;
+    width: 100%;
     height: 140px;
-    background: url(../images/banner-two.png) no-repeat;
+    background: url(../images/banner2.png) no-repeat;
     background-size: cover;
     background-position: center;
     color: #fff;
 }
+
 
 .banner2 h3 {
     padding-left: 800px;
@@ -521,8 +522,11 @@ footer {
 
 .banner2 p {
     padding-left: 840px;
-    color: #B4B4B4;
+    color: #000;
+    /* 修改为纯白色提高对比度 */
     font-size: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    /* 添加文字阴影增强可读性 */
 }
 
 #main_box {

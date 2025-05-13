@@ -149,7 +149,7 @@ nav ul>li>a:hover {
     margin: 0 auto;
     background: url(../images/banner1.png) no-repeat;
     background-size: cover;
-    background-position: center -225px;/* 垂直向下偏移 50px */
+    background-position: center -235px;/* 垂直向下偏移 50px */
     width: 100%;
     /* 设置最小宽度为 1100px */
 }
@@ -205,8 +205,8 @@ nav ul>li>a:hover {
     float: right;
     width: 200px;
     height: auto;
-    margin-right: -220px;
-    margin-top: 100px;
+    margin-right: -310px;
+    margin-top: 0px;
     position: relative;
     /* 关键：为了让遮罩层定位在图片上 */
     cursor: pointer;

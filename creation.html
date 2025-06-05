@@ -20,30 +20,30 @@
                 <nav>
                     <ul>
                         <li>
-                            <a href="./index.html">网站首页</a>
+                            <a href="./Index.html">网站首页</a>
                         </li>
                         <li>
-                            <a href="./DunhuangStudies.html">瑶绣的产生</a>
+                            <a href="./Yao_Embroidery_Studies.html">瑶绣的产生</a>
                         </li>
                         <li>
-                            <a href="./history.html">故事传说</a>
+                            <a href="./Legends_Folktales.html">故事传说</a>
                         </li>
                         <li class="rop-down-menu-box">
                             <div class="drop-down-menu">
                                 <a href="#">纹样展厅</a>
                                 <div class="drop-box">
-                                    <a href="./animal.html">花鸟主题</a>
-                                    <a href="./dance.html">人物与生活</a>
-                                    <a href="./architecture.html">传统纹样</a>
-                                    <a href="./Feitian.html">民族图腾</a>
+                                    <a href="./Flower-and-Bird_Subject.html">花鸟主题</a>
+                                    <a href="./Characters_and_Life.html">人物与生活</a>
+                                    <a href="./Traditional_Patterns.html">传统纹样</a>
+                                    <a href="./Ethnic_Totem.html">民族图腾</a>
                                 </div>
                             </div>
                         </li>
                         <li>
-                            <a href="./Scripture.html">教学指导</a>
+                            <a href="./Teaching_Guide.html">教学指导</a>
                         </li>
                         <li>
-                            <a href="./creation.html">共创作品</a>
+                            <a href="./Creation.html">共创作品</a>
                         </li>
                     </ul>
                 </nav>
@@ -52,7 +52,7 @@
                 <span>
                     <input type="text" placeholder="请输入一个关键字">
                 </span>
-                <a href="login.html">登录</a>
+                <a href="Login.html">登录</a>
             </div>
             <div class="clear"></div>
         </div>
@@ -67,17 +67,36 @@
     <!-- 第二导航栏 -->
     <div id="nav2">
         <div class="nav2_box">
-            <a href="./index.html">主页</a> - <a href="./creation.html">共创作品</a>
+            <a href="./Index.html">主页</a> - <a href="./Creation.html">共创作品</a>
         </div>
     </div>
     <!-- 中间主要内容 -->
     <div id="main_box2">
         <div class="mian_box2">
             <h3>共创作品<span>(Co-create works)</span> </h3>
+
+            <div class="design-section">
+                <h2>自主设计 · 大胆创作</h2>
+                <p>使用画笔在画布上绘制属于你的瑶绣图案：</p>
+            
+                <div class="design-toolbar">
+                    <button class="toolbar-button" onclick="setTool('brush')">画笔</button>
+                    <button class="toolbar-button" onclick="setTool('eraser')">橡皮擦</button>
+                    <label class="toolbar-button" style="padding: 0.5rem;">
+                        <input type="color" id="colorPicker" value="#000000" onchange="setColor(this.value)"
+                            style="vertical-align: middle; border: none;" />
+                    </label>
+                    <button class="toolbar-button" onclick="clearCanvas()">清空画布</button>
+                </div>
+            
+                <canvas id="drawCanvas" width="800" height="500"></canvas>
+            </div>
+    
             <ul class="Co_create_works_box">
                 <li>
                     <div class="works_box_img">
                     </div>
+                    
                     <h3>
                         千年乐舞
                     </h3>
@@ -151,6 +170,64 @@
             </p>
         </div>
     </footer>
+
+    <script>
+        const canvas = document.getElementById("drawCanvas");
+        const ctx = canvas.getContext("2d");
+
+        let drawing = false;
+        let currentTool = "brush";
+        let currentColor = "#000000";
+
+        canvas.addEventListener("mousedown", (e) => {
+                drawing = true;
+
+                const rect = canvas.getBoundingClientRect();
+                lastX = e.clientX - rect.left;
+                lastY = e.clientY - rect.top;
+
+                draw(e); // 立刻画出第一笔
+        });
+
+        canvas.addEventListener("mousemove", draw);
+        canvas.addEventListener("mouseup", () => drawing = false);
+        canvas.addEventListener("mouseleave", () => drawing = false);
+
+        let lastX = 0, lastY = 0;
+
+        function draw(e) {
+            if (!drawing) return;
+
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            ctx.strokeStyle = currentTool === "eraser" ? "#ffffff" : currentColor;
+            ctx.lineWidth = 6;
+            ctx.lineCap = "round";
+
+            ctx.beginPath();
+            ctx.moveTo(lastX, lastY);
+            ctx.lineTo(x, y);
+            ctx.stroke();
+
+            lastX = x;
+            lastY = y;
+        }
+
+        function setColor(color) {
+            currentColor = color;
+        }
+
+        function setTool(tool) {
+            currentTool = tool;
+        }
+
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+    </script>
+
 </body>
 
 </html>

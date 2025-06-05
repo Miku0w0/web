@@ -25,6 +25,7 @@
     animation: fadeInUp 1s ease-in-out;
 }
 
+/*创建元素从底部淡入并向上移动的效果,"浮现"*/
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -35,6 +36,75 @@
         opacity: 1;
         transform: translateY(0);
     }
+}
+/* 创作板子 */
+.design-section {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.design-toolbar {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.toolbar-button {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.toolbar-button:hover {
+    background-color: #007BFF;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+    border-color: #007BFF;
+}
+
+/*颜色选择器的优化*/
+#colorPicker {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#colorPicker:hover {
+    border-color: #007BFF;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.4);
+}
+
+.draw-iframe {
+    width: 100%;
+    max-width: 800px;
+    height: 500px;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    display: block;
+}
+
+canvas#drawCanvas {
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    display: block;
+    margin: 0 auto;
+    cursor: crosshair;
 }
 
 /* 播放视频 */
@@ -138,7 +208,7 @@ nav ul>li>a:hover {
     text-decoration: underline;
 }
 
-
+/* 貌似是第二导航栏 */
 .drop-down-menu {
     width: 64px;
 }
@@ -160,7 +230,7 @@ nav ul>li>a:hover {
 
 .rop-down-menu-box:hover .drop-box {
     display: block;
-    border-top: 4px solid #FF3030;
+    border-top: 4px solid #30c1ff;/* 我觉得改成蓝色更搭^^ */
     position: relative;
     top: -10px;
     background-color: #fff;
@@ -273,8 +343,8 @@ nav ul>li>a:hover {
 }
 
 
-/* <!-- 壁画专题 --> */
-#Mural_Special_Topic {
+/* <!-- 首页瑶绣专题 --> */
+#Yao_Embroidery_Topic {
     position: relative;
     width: 100%;
     padding: 50px 0px;
@@ -295,7 +365,7 @@ nav ul>li>a:hover {
     width: 300px;
 }
 
-.Mural_Special_Topic_box {
+.Yao_Embroidery_Topic_box {
     width: 1200px;
     margin: 0 auto;
 }
@@ -316,11 +386,11 @@ nav ul>li>a:hover {
     margin-top: 10px;
 }
 
-.Mural_Special_list {
+.Yao_Embroidery_list {
     margin-top: 30px;
 }
 
-.Mural_Special_list li {
+.Yao_Embroidery_list li {
     display: inline-block;
     width: 226px;
     margin: 15px;
@@ -332,17 +402,17 @@ nav ul>li>a:hover {
 
 
 
-.Mural_Special_list li img {
+.Yao_Embroidery_list li img {
     width: 100%;
 }
 
-.Mural_Special_list li h3 {
+.Yao_Embroidery_list li h3 {
     font-size: 26px;
     line-height: 40px;
     margin: 10px 0px;
 }
 
-.Mural_Special_list_txt {
+.Yao_Embroidery_list_txt {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
@@ -352,13 +422,13 @@ nav ul>li>a:hover {
     line-height: 26px;
 }
 
-.Mural_Special_list_number {
+.Yao_Embroidery_list_number {
     font-size: 14px;
     color: #cdcdcd;
     margin-top: 10px;
 }
 
-.Mural_Special_list_number span {
+.Yao_Embroidery_list_number span {
     color: #bf4800;
 }
 
@@ -611,18 +681,18 @@ footer {
     margin-bottom: 20px;
 }
 
-/* 壁画专题 */
-#illustrate {
+/* 纹样展厅展开专题 */
+#Yao_Embroidery {
     position: relative;
     width: 100%;
     overflow: hidden;
 }
 
-#illustrate img {
+#Yao_Embroidery img {
     width: 100%;
 }
 
-.illustrate_box {
+.Yao_Embroidery_box {
     position: absolute;
     width: 100%;
     text-align: center;
@@ -630,17 +700,17 @@ footer {
     top: 40px;
 }
 
-.illustrate_box p {
+.Yao_Embroidery_box p {
     width: 1000px;
     margin: 0 auto;
 }
 
-.illustrate_box h3 {
+.Yao_Embroidery_box h3 {
     font-size: 40px;
     line-height: 100px;
 }
 
-#illustrate img {
+#Yao_Embroidery img {
     width: 100%;
     animation: zoom 5s infinite;
     /* 5秒的动画，无限循环 */

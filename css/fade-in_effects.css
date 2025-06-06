@@ -1,0 +1,21 @@
+/* 浮动显示 */
+.story-block {
+    position: relative;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 1rem;
+    border-radius: 12px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/*创建元素从底部淡入并向上移动的效果,"浮现"*/
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

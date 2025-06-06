@@ -1,0 +1,85 @@
+/* 教学指导外层盒子 */
+#Documents_box {
+    width: 100%;
+    font-family: "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+/* 卡片整体样式 + 动画 */
+#Documents_box ul li {
+    float: left;
+    width: 48%;
+    background-color: #F1ECE6;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 30px;
+    overflow: hidden;
+    height: 220px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+}
+
+#Documents_box ul li:nth-child(2n) {
+    margin-left: 4%;
+}
+
+/* hover 动效 */
+#Documents_box ul li:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* 图片容器 */
+.jing_img {
+    float: left;
+    height: 200px;
+    text-align: center;
+    width: 200px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    margin-right: 20px;
+    overflow: hidden;
+}
+
+.jing_img img {
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+/* 图片缩放动效（可选） */
+#Documents_box ul li:hover .jing_img img {
+    transform: scale(1.05);
+}
+
+/* 标题行 */
+.jing_txt p:nth-child(1) {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+/* 标题变色 */
+#Documents_box ul li:hover .jing_txt p:nth-child(1) {
+    color: #0a70c4;
+}
+
+/* 第二行文字（带数字或标签） */
+.jing_txt p:nth-child(2) {
+    font-size: 12px;
+    line-height: 30px;
+    color: #666;
+}
+
+.jing_txt p:nth-child(2) span {
+    color: #9c3925;
+}
+
+/* 第三行正文介绍 */
+.jing_txt p:nth-child(3) {
+    color: #483C34;
+    line-height: 26px;
+    font-size: 14px;
+}

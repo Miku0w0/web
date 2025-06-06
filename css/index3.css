@@ -1,0 +1,49 @@
+/* <!-- 文献 --> */
+#literature {
+    width: 100%;
+    background: url(../images/wenxian.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 50px 0px;
+}
+
+#literature .h2 {
+    color: #fff;
+}
+
+#literature_box {
+    width: 1200px;
+    margin: 0 auto;
+    margin-top: 60px;
+}
+
+.literature_box_left {
+    color: #fff;
+    line-height: 30px;
+    display: inline-block;
+}
+
+.literature_box_left ul {
+    margin-top: 40px;
+}
+
+.literature_box_left ul li {
+    margin-bottom: 30px;
+    font-size: 20px;
+    color: #B9B6B4;
+    cursor: pointer;
+}
+
+.literature_box_left ul li:hover {
+    color: #fff;
+}
+
+.literature_box_right {
+    width: 590px;
+    float: right;
+    top: 0px;
+}
+
+.literature_box_right img {
+    width: 100%;
+}

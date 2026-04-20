@@ -1,0 +1,352 @@
+/* ============================================
+   针纹图鉴板块样式
+   主色调：深棕 #5a4535，暖红 #b35c44，米白 #f8f5f0
+   ============================================ */
+
+/* 针纹图鉴页面背景 */
+.needle-pattern-page {
+    background: url('../images/4-bg.png') repeat;
+    background-size: cover;
+    position: relative;
+    width: 95% !important;
+    max-width: 1600px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.needle-pattern-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    pointer-events: none;
+}
+
+.needle-pattern-page > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* 针纹图鉴页面标题样式 */
+.needle-pattern-page h3 {
+    padding-left: 60px !important;
+}
+
+/* ============================================
+   针纹图鉴板块 - 引导文案区
+   ============================================ */
+
+.guide-intro {
+    margin-bottom: 50px;
+    padding: 35px 50px;
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(90, 69, 53, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(90, 69, 53, 0.08);
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.guide-intro p {
+    font-size: 16px;
+    line-height: 1.9;
+    color: #444;
+    text-align: justify;
+    margin: 0;
+}
+
+/* ============================================
+   双栏卡片核心区
+   ============================================ */
+
+.guide-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-top: 50px;
+    padding: 0 20px;
+}
+
+/* 卡片基础样式 */
+.guide-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(90, 69, 53, 0.15);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(90, 69, 53, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.guide-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(90, 69, 53, 0.2);
+}
+
+/* 折叠态样式 */
+.card-collapsed {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-image {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f8f5f0 0%, #e8e0d5 100%);
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.guide-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 28px;
+}
+
+.card-content h4 {
+    font-size: 22px;
+    color: #5a4535;
+    font-weight: bold;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.card-tag {
+    display: inline-block;
+    background: linear-gradient(135deg, #b35c44 0%, #c46e54 100%);
+    color: #fff;
+    font-size: 13px;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.card-summary {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.expand-btn {
+    background: #5a4535;
+    color: #fff;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.expand-btn:hover {
+    background: #b35c44;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(179, 92, 68, 0.3);
+}
+
+/* 展开态样式 */
+.card-expanded {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    background: rgba(248, 245, 240, 0.5);
+}
+
+.card-expanded.show {
+    max-height: 5000px;
+    opacity: 1;
+}
+
+.expanded-content {
+    padding: 30px;
+    border-top: 1px solid rgba(90, 69, 53, 0.1);
+}
+
+.expanded-content h5 {
+    font-size: 18px;
+    color: #5a4535;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #b35c44;
+    display: inline-block;
+}
+
+.content-section {
+    margin-bottom: 25px;
+}
+
+.content-section h6 {
+    font-size: 16px;
+    color: #5a4535;
+    font-weight: bold;
+    margin-bottom: 12px;
+    margin-top: 18px;
+}
+
+.content-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.content-section ul li {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.9;
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.content-section ul li::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    color: #b35c44;
+    font-size: 10px;
+    top: 2px;
+}
+
+.content-section ul li strong {
+    color: #5a4535;
+    font-weight: 600;
+}
+
+.content-section p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.9;
+}
+
+.collapse-btn {
+    background: #b35c44;
+    color: #fff;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.collapse-btn:hover {
+    background: #5a4535;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(90, 69, 53, 0.3);
+}
+
+/* ============================================
+   图片展示区域样式
+   ============================================ */
+
+.image-section {
+    margin-top: 15px;
+}
+
+.image-section img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(90, 69, 53, 0.1);
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.image-grid img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* ============================================
+   响应式设计
+   ============================================ */
+
+/* 平板端 */
+@media screen and (max-width: 1199px) {
+    .guide-cards {
+        gap: 30px;
+        padding: 0 15px;
+    }
+    
+    .card-image {
+        height: 200px;
+    }
+    
+    .card-content {
+        padding: 24px;
+    }
+    
+    .guide-intro {
+        padding: 30px 35px;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+}
+
+/* 手机端 */
+@media screen and (max-width: 767px) {
+    .guide-cards {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 0 10px;
+    }
+    
+    .card-image {
+        height: 180px;
+    }
+    
+    .card-content {
+        padding: 20px;
+    }
+    
+    .card-content h4 {
+        font-size: 20px;
+    }
+    
+    .guide-intro {
+        padding: 25px 20px;
+        margin-bottom: 35px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    
+    .guide-intro p {
+        font-size: 14px;
+    }
+    
+    .expanded-content {
+        padding: 20px;
+    }
+    
+    .content-section h6 {
+        font-size: 15px;
+    }
+    
+    .content-section ul li {
+        font-size: 13px;
+    }
+}

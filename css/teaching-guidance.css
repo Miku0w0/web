@@ -1,3 +1,40 @@
+/* ============================================
+   学习传承板块样式
+   主色调：深棕 #5a4535，暖红 #b35c44，米白 #f8f5f0
+   ============================================ */
+
+/* 学习传承页面背景 */
+.teaching-page {
+    background: url('../images/4-bg.png') repeat;
+    background-size: cover;
+    position: relative;
+    width: 95% !important;
+    max-width: 1600px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.teaching-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    pointer-events: none;
+}
+
+.teaching-page > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* 学习传承页面标题样式 */
+.teaching-page h3 {
+    padding-left: 60px !important;
+}
+
 /* 教学指导外层盒子 */
 #Documents_box {
     width: 100%;
@@ -48,38 +85,346 @@
 }
 
 /* 图片缩放动效（可选） */
-#Documents_box ul li:hover .jing_img img {
-    transform: scale(1.05);
+
+/* ============================================
+   学习传承板块 - 引导文案区
+   ============================================ */
+
+.guide-intro {
+    margin-bottom: 50px;
+    padding: 35px 50px;
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(90, 69, 53, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(90, 69, 53, 0.08);
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* 标题行 */
-.jing_txt p:nth-child(1) {
-    font-size: 20px;
+.guide-intro p {
+    font-size: 16px;
+    line-height: 1.9;
+    color: #444;
+    text-align: justify;
+    margin: 0;
+}
+
+/* ============================================
+   学习传承板块 - 三栏卡片核心区
+   ============================================ */
+
+.heritage-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+    margin-top: 50px;
+    padding: 0 20px;
+}
+
+/* 卡片基础样式 - 更宽的卡片 */
+.heritage-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(90, 69, 53, 0.15);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(90, 69, 53, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.heritage-card:hover {
+    box-shadow: 0 10px 35px rgba(90, 69, 53, 0.2);
+    transform: translateY(-5px);
+}
+
+/* 折叠态样式 */
+.card-collapsed {
+    padding: 0;
+}
+
+.card-image {
+    margin-bottom: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px 12px 0 0;
+    transition: transform 0.4s ease;
+}
+
+.heritage-card:hover .card-image img {
+    transform: scale(1.03);
+}
+
+.card-content {
+    padding: 22px;
+}
+
+.card-content h4 {
+    font-size: 19px;
+    color: #5a4535;
     font-weight: bold;
-    color: #333;
-    margin-bottom: 10px;
-    transition: color 0.3s ease;
+    margin-bottom: 12px;
+    line-height: 1.4;
 }
 
-/* 标题变色 */
-#Documents_box ul li:hover .jing_txt p:nth-child(1) {
-    color: #0a70c4;
-}
-
-/* 第二行文字（带数字或标签） */
-.jing_txt p:nth-child(2) {
+.card-tag {
+    display: inline-block;
+    background: linear-gradient(135deg, #b35c44 0%, #c46e56 100%);
+    color: #fff;
     font-size: 12px;
-    line-height: 30px;
-    color: #666;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
-.jing_txt p:nth-child(2) span {
-    color: #9c3925;
-}
-
-/* 第三行正文介绍 */
-.jing_txt p:nth-child(3) {
-    color: #483C34;
-    line-height: 26px;
+.card-summary {
     font-size: 14px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 18px;
+}
+
+.heritage-quote {
+    font-style: italic;
+    color: #5a4535;
+    border-left: 3px solid #b35c44;
+    padding: 14px 16px;
+    background: rgba(179, 92, 68, 0.06);
+    border-radius: 0 8px 8px 0;
+    position: relative;
+}
+
+.heritage-quote::before {
+    content: """;
+    font-size: 24px;
+    color: #b35c44;
+    position: absolute;
+    top: 5px;
+    left: 8px;
+    opacity: 0.3;
+}
+
+/* 展开/收起按钮 */
+.expand-btn,
+.collapse-btn {
+    width: 100%;
+    padding: 14px 20px;
+    background: linear-gradient(135deg, #5a4535 0%, #6b5242 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.expand-btn:hover,
+.collapse-btn:hover {
+    background: linear-gradient(135deg, #6b5242 0%, #7c6353 100%);
+    box-shadow: 0 4px 12px rgba(90, 69, 53, 0.3);
+}
+
+.expand-btn:active,
+.collapse-btn:active {
+    transform: scale(0.98);
+}
+
+/* 展开态样式 */
+.card-expanded {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+}
+
+.card-expanded.show {
+    max-height: 3000px;
+    opacity: 1;
+}
+
+.expanded-content {
+    padding: 0 22px 22px;
+    border-top: 1px solid rgba(90, 69, 53, 0.1);
+}
+
+.expanded-content p {
+    font-size: 14px;
+    line-height: 1.85;
+    color: #444;
+    margin-bottom: 16px;
+    text-align: justify;
+}
+
+.expanded-image {
+    margin: 20px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+}
+
+.expanded-image img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.image-caption {
+    font-size: 13px;
+    color: #666;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 0;
+    padding: 8px;
+    background: rgba(90, 69, 53, 0.03);
+    border-radius: 0 0 10px 10px;
+}
+
+.collapse-btn {
+    margin-top: 20px;
+    background: linear-gradient(135deg, #b35c44 0%, #c46e56 100%);
+}
+
+.collapse-btn:hover {
+    background: linear-gradient(135deg, #c46e56 0%, #d58068 100%);
+    box-shadow: 0 4px 12px rgba(179, 92, 68, 0.3);
+}
+
+/* 卡片展开时的特殊样式 */
+.heritage-card.expanded {
+    box-shadow: 0 10px 40px rgba(90, 69, 53, 0.2);
+}
+
+/* ============================================
+   响应式布局
+   ============================================ */
+
+/* 小屏 PC / 平板：768px-1199px，两栏布局 */
+@media (max-width: 1199px) {
+    .heritage-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        padding: 0 15px;
+    }
+    
+    /* 第三栏单独一行全宽 */
+    .heritage-card:nth-child(3) {
+        grid-column: 1 / -1;
+        max-width: 550px;
+        margin: 0 auto;
+    }
+    
+    .guide-intro {
+        padding: 30px 35px;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+}
+
+/* 手机端：<768px，单栏纵向堆叠 */
+@media (max-width: 767px) {
+    .guide-intro {
+        padding: 25px 20px;
+        margin-bottom: 35px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    
+    .guide-intro p {
+        font-size: 14px;
+        line-height: 1.75;
+    }
+    
+    .heritage-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 10px;
+        margin-top: 35px;
+    }
+    
+    .heritage-card:nth-child(3) {
+        grid-column: auto;
+        max-width: none;
+    }
+    
+    .card-content {
+        padding: 18px;
+    }
+    
+    .card-image img {
+        height: 200px;
+    }
+    
+    .card-content h4 {
+        font-size: 17px;
+    }
+    
+    .card-summary,
+    .expanded-content p {
+        font-size: 13px;
+        line-height: 1.75;
+    }
+    
+    .expand-btn,
+    .collapse-btn {
+        padding: 12px 16px;
+        font-size: 13px;
+    }
+    
+    .expanded-image img {
+        height: 160px;
+    }
+}
+
+/* 大屏 PC：≥1200px 优化 - 更宽的卡片 */
+@media (min-width: 1200px) {
+    .heritage-cards {
+        gap: 40px;
+        padding: 0 10px;
+    }
+    
+    .card-content {
+        padding: 28px;
+    }
+    
+    .card-image img {
+        height: 260px;
+    }
+    
+    .card-content h4 {
+        font-size: 21px;
+    }
+    
+    .expanded-image img {
+        height: 220px;
+    }
+}
+
+/* 超大屏：≥1400px */
+@media (min-width: 1400px) {
+    .heritage-cards {
+        gap: 50px;
+        padding: 0 20px;
+    }
+    
+    .card-image img {
+        height: 280px;
+    }
+    
+    .card-content {
+        padding: 30px;
+    }
 }

@@ -10,3 +10,68 @@
     transform: scale(1.03);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
+
+/* 视频画廊 */
+.video-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.video-item {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.video-wrapper {
+    width: 100%;
+    background: #000;
+}
+
+.video-wrapper video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.video-info {
+    padding: 20px;
+}
+
+.video-info h4 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.video-info p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .video-gallery {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .video-info {
+        padding: 15px;
+    }
+    
+    .video-info h4 {
+        font-size: 16px;
+    }
+}

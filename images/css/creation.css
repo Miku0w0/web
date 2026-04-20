@@ -1,0 +1,228 @@
+/* ============================================
+   共创作品页面样式
+   ============================================ */
+
+/* 页面标题样式 - 与其他页面保持一致 */
+.creation-page h3 {
+    color: #5a4535 !important;
+    position: relative;
+    z-index: 2;
+}
+
+/* 页面背景 */
+.creation-page {
+    background: url('../images/4-bg.png') repeat;
+    background-size: cover;
+    position: relative;
+    width: 95% !important;
+    max-width: 1600px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.creation-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.85);
+    pointer-events: none;
+}
+
+/* 栏目总导语 */
+.guide-intro {
+    position: relative;
+    z-index: 1;
+    margin: 30px 0 50px;
+    padding: 0 20px;
+}
+
+.intro-quote {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #5a4535;
+    text-align: center;
+    font-style: italic;
+    position: relative;
+    padding: 20px 40px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    border-left: 4px solid #b35c44;
+    border-right: 4px solid #b35c44;
+}
+
+.intro-quote::before,
+.intro-quote::after {
+    font-size: 24px;
+    color: #b35c44;
+    line-height: 1;
+}
+
+.intro-quote::before {
+    content: '"';
+    margin-right: 8px;
+}
+
+.intro-quote::after {
+    content: '"';
+    margin-left: 8px;
+}
+
+/* 作品分类区域 */
+.works-category {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 60px;
+    padding: 0 20px;
+}
+
+.category-header {
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid rgba(90, 69, 53, 0.15);
+}
+
+.category-header h4 {
+    font-size: 22px;
+    color: #5a4535;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.category-header .divider {
+    color: #b35c44;
+    font-weight: 400;
+}
+
+.category-desc {
+    font-size: 14px;
+    color: #777;
+    line-height: 1.6;
+    margin-top: 8px;
+}
+
+/* 作品网格布局 */
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* 作品卡片 */
+.work-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(90, 69, 53, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #fff;
+}
+
+.work-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(90, 69, 53, 0.2);
+}
+
+.work-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+}
+
+.work-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.work-card:hover .work-image img {
+    transform: scale(1.05);
+}
+
+/* Hover 浮层 */
+.work-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(90, 69, 53, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-align: center;
+}
+
+.work-card:hover .work-overlay {
+    opacity: 1;
+}
+
+.work-overlay h5 {
+    font-size: 18px;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 12px;
+    transform: translateY(10px);
+    transition: transform 0.3s ease 0.1s;
+}
+
+.work-overlay p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    transform: translateY(10px);
+    transition: transform 0.3s ease 0.15s;
+}
+
+.work-card:hover .work-overlay h5,
+.work-card:hover .work-overlay p {
+    transform: translateY(0);
+}
+
+/* ============================================
+   响应式设计
+   ============================================ */
+
+/* 平板端 */
+@media screen and (max-width: 1199px) {
+    .works-grid {
+        gap: 20px;
+    }
+    
+    .category-header h4 {
+        font-size: 20px;
+    }
+}
+
+/* 移动端 */
+@media screen and (max-width: 768px) {
+    .works-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .intro-quote {
+        font-size: 14px;
+        padding: 15px 20px;
+    }
+    
+    .category-header h4 {
+        font-size: 18px;
+        flex-wrap: wrap;
+    }
+    
+    .works-category {
+        margin-bottom: 40px;
+    }
+}

@@ -1,119 +1,228 @@
-/* 共创作品 */
-#main_box2 {
-    width: 100%;
-    background-color: #F2EEE8;
-}
+/* ============================================
+   共创作品页面样式
+   ============================================ */
 
-#main_box2 h3 {
-    font-size: 30px;
-    padding: 10px 0px;
-}
-
-#main_box2 h3 span {
-    color: #878787;
-    font-size: 20px;
-    margin-left: 10px;
-}
-
-.mian_box2 {
-    width: 1200px;
-    margin: 0 auto;
-    padding-top: 60px;
-    padding-bottom: 60px;
-}
-
-.Co_create_works_box li:nth-child(1) .works_box_img {
-    background: url(../images/create1.png) no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-
-.Co_create_works_box li:nth-child(2) .works_box_img {
-    background: url(../images/create2.png) no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-
-.Co_create_works_box li:nth-child(3) .works_box_img {
-    background: url(../images/create3.png) no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-
-.Co_create_works_box li:nth-child(4) .works_box_img {
-    background: url(../images/create4.png) no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-
-.Co_create_works_box li:nth-child(5) .works_box_img {
-    background: url(../images/create5.png) no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-
-.Co_create_works_box li:nth-child(6) .works_box_img {
-    background: url(../images/create6.png) no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-
-.Co_create_works_box {
-    width: 1200px;
-    margin: 0 auto;
-    font-family: "Helvetica Neue", "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-}
-
-/* 卡片样式 + hover 动画 */
-.Co_create_works_box li {
-    width: 296px;
-    display: inline-block;
-    margin: 30px;
-    padding: 20px;
-    background: #fff;
-    border-radius: 20px;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.Co_create_works_box li:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-}
-
-/* 图片容器样式 */
-.works_box_img {
-    width: 100%;
-    height: 296px;
-    overflow: hidden;
-    text-align: center;
+/* 页面标题样式 - 与其他页面保持一致 */
+.creation-page h3 {
+    color: #5a4535 !important;
     position: relative;
-    border-radius: 16px;
+    z-index: 2;
 }
 
-/* 标题美化：更清晰字体 + 鼠标移入变色 */
-.Co_create_works_box h3 {
+/* 页面背景 */
+.creation-page {
+    background: url('../images/4-bg.png') repeat;
+    background-size: cover;
+    position: relative;
+    width: 95% !important;
+    max-width: 1600px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.creation-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.85);
+    pointer-events: none;
+}
+
+/* 栏目总导语 */
+.guide-intro {
+    position: relative;
+    z-index: 1;
+    margin: 30px 0 50px;
+    padding: 0 20px;
+}
+
+.intro-quote {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #5a4535;
+    text-align: center;
+    font-style: italic;
+    position: relative;
+    padding: 20px 40px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    border-left: 4px solid #b35c44;
+    border-right: 4px solid #b35c44;
+}
+
+.intro-quote::before,
+.intro-quote::after {
     font-size: 24px;
-    line-height: 36px;
-    margin: 10px 0;
+    color: #b35c44;
+    line-height: 1;
+}
+
+.intro-quote::before {
+    content: '"';
+    margin-right: 8px;
+}
+
+.intro-quote::after {
+    content: '"';
+    margin-left: 8px;
+}
+
+/* 作品分类区域 */
+.works-category {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 60px;
+    padding: 0 20px;
+}
+
+.category-header {
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid rgba(90, 69, 53, 0.15);
+}
+
+.category-header h4 {
+    font-size: 22px;
+    color: #5a4535;
     font-weight: 600;
-    color: #333;
-    transition: color 0.3s ease;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.Co_create_works_box li:hover h3 {
-    color: #007aff;
+.category-header .divider {
+    color: #b35c44;
+    font-weight: 400;
 }
 
-/* 描述文字，三行省略 + 清晰字体 */
-.works_box_txt {
-    height: 78px;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
+.category-desc {
     font-size: 14px;
-    line-height: 26px;
     color: #777;
+    line-height: 1.6;
+    margin-top: 8px;
+}
+
+/* 作品网格布局 */
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* 作品卡片 */
+.work-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(90, 69, 53, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #fff;
+}
+
+.work-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(90, 69, 53, 0.2);
+}
+
+.work-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+}
+
+.work-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.work-card:hover .work-image img {
+    transform: scale(1.05);
+}
+
+/* Hover 浮层 */
+.work-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(90, 69, 53, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-align: center;
+}
+
+.work-card:hover .work-overlay {
+    opacity: 1;
+}
+
+.work-overlay h5 {
+    font-size: 18px;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 12px;
+    transform: translateY(10px);
+    transition: transform 0.3s ease 0.1s;
+}
+
+.work-overlay p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    transform: translateY(10px);
+    transition: transform 0.3s ease 0.15s;
+}
+
+.work-card:hover .work-overlay h5,
+.work-card:hover .work-overlay p {
+    transform: translateY(0);
+}
+
+/* ============================================
+   响应式设计
+   ============================================ */
+
+/* 平板端 */
+@media screen and (max-width: 1199px) {
+    .works-grid {
+        gap: 20px;
+    }
+    
+    .category-header h4 {
+        font-size: 20px;
+    }
+}
+
+/* 移动端 */
+@media screen and (max-width: 768px) {
+    .works-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .intro-quote {
+        font-size: 14px;
+        padding: 15px 20px;
+    }
+    
+    .category-header h4 {
+        font-size: 18px;
+        flex-wrap: wrap;
+    }
+    
+    .works-category {
+        margin-bottom: 40px;
+    }
 }

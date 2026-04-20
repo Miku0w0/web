@@ -37,7 +37,7 @@ header {
 
 .logo {
     float: left;
-    width: 140px;
+    width: 220px;
     margin-right: 30px;
 }
 
@@ -151,18 +151,22 @@ nav ul>li>a:hover {
 /* banner栏目 */
 #banner {
     position: relative;
-    height: 540px;
+    height: min(66.67vw, 900px);
+    min-height: 540px;
     margin: 0 auto;
-    background: url(../images/banner1.png) no-repeat;
-    background-size: cover;
-    background-position: center -235px;/* 垂直向下偏移 50px */
+    background: url(./111.png) no-repeat;
+    background-size: 100% 100%;
+    background-position: center center;
+    background-color: #8b6a52;
     width: 100%;
+    overflow: hidden;
     /* 设置最小宽度为 1100px */
 }
 
 .little_box {
     position: relative;
-    width: 1400px;
+    width: min(1400px, calc(100% - 40px));
+    height: 100%;
     margin: 0 auto;
 }
 
@@ -208,16 +212,16 @@ nav ul>li>a:hover {
 }
 
 .index-img {
-    float: right;
-    width: 200px;
+    position: absolute;
+    top: 90px;
+    right: clamp(16px, 4vw, 90px);
+    width: 260px;
+    max-width: 30vw;
     height: auto;
-    margin-right: -310px;
-    margin-top: 0px;
-    position: relative;
-    /* 关键：为了让遮罩层定位在图片上 */
+    margin: 0;
+    z-index: 2;
     cursor: pointer;
     overflow: hidden;
-    /* 确保遮罩不溢出容器 */
 }
 
 .index-img img {
@@ -350,18 +354,34 @@ footer {
     padding: 20px;
 }
 
-.wenhua {
-    float: left;
-    width: 200px;
-    margin-right: 20px;
-    margin-bottom: 20px;
-}
-
 .main_txt p {
     text-indent: 2rem;
     line-height: 2em;
     color: #333;
     margin-bottom: 20px;
+}
+
+.article-image-slot {
+    margin: 10px 0 28px;
+    text-align: center;
+}
+
+.article-image {
+    display: block;
+    width: 100%;
+    max-width: 760px;
+    max-height: 430px;
+    margin: 0 auto;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 1px solid #e5d6c4;
+    background: #f8f2ea;
+}
+
+@media (max-width: 900px) {
+    .article-image {
+        max-height: 320px;
+    }
 }
 
 

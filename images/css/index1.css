@@ -1,0 +1,199 @@
+/* <!-- 首页瑶绣专题 --> */
+#Yao_Embroidery_Topic {
+    position: relative;
+    width: 100%;
+    padding: 50px 0px;
+    background: url(../images/bg1.png);
+}
+
+.Yao_Embroidery_Topic_box {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.bg2 {
+    top: 0px;
+    width: 300px;
+    position: absolute;
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.bg2 img {
+    width: 300px;
+}
+
+.h2 {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+}
+
+.h2 h2 {
+    font-size: 40px;
+}
+
+.h2 p {
+    color: #878787;
+    line-height: 30px;
+    margin-top: 10px;
+}
+
+.Yao_Embroidery_list {
+    margin-top: 30px;
+    font-family: "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+/* 卡片样式 + hover 动效 */
+.Yao_Embroidery_list li {
+    display: inline-block;
+    width: 226px;
+    margin: 15px;
+    background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    vertical-align: top;
+}
+
+.Yao_Embroidery_list li:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 图片样式优化 */
+.Yao_Embroidery_list li img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+/* 标题文字样式 + hover 时变色 */
+.Yao_Embroidery_list li h3 {
+    font-size: 24px;
+    line-height: 36px;
+    margin: 10px 0;
+    font-weight: bold;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.Yao_Embroidery_list li:hover h3 {
+    color: #00aad9;
+    /* 可替换为主题色 */
+}
+
+/* 简介文字 */
+.Yao_Embroidery_list_txt {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    font-size: 14px;
+    color: #777;
+    line-height: 26px;
+}
+
+/* 浏览量或点赞数 */
+.Yao_Embroidery_list_number {
+    font-size: 14px;
+    color: #cdcdcd;
+    margin-top: 10px;
+}
+
+.Yao_Embroidery_list_number span {
+    color: #008cbf;
+}
+
+.pattern_expand {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, opacity 0.3s ease, margin-top 0.3s ease;
+    margin-top: 0;
+}
+
+.Yao_Embroidery_list li:hover .pattern_expand {
+    max-height: 220px;
+    opacity: 1;
+    margin-top: 12px;
+}
+
+.pattern_expand_item {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #e8edf2;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    background: #f8fbff;
+}
+
+.pattern_expand_item:last-child {
+    margin-bottom: 0;
+}
+
+.pattern_expand_item img {
+    width: 100%;
+    height: 66px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+.pattern_expand_item span {
+    display: block;
+    margin-top: 6px;
+    font-size: 13px;
+    color: #555;
+    line-height: 1.4;
+}
+
+/* 顶部大图展厅部分 */
+#Yao_Embroidery {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+#Yao_Embroidery img {
+    width: 100%;
+    animation: zoom 5s infinite;
+    /* 图片慢慢放大后回缩 */
+}
+
+@keyframes zoom {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* 大图文字说明 */
+.Yao_Embroidery_box {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    top: 40px;
+}
+
+.Yao_Embroidery_box p {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.Yao_Embroidery_box h3 {
+    font-size: 40px;
+    line-height: 100px;
+}

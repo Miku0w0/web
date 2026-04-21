@@ -38,12 +38,57 @@
     color: #fff;
 }
 
-.literature_box_right {
+/* 组合：既负责右浮动定位，又负责开启 3D 视距 */
+.literature_box_right.hover-image-box {
     width: 590px;
     float: right;
+    position: relative;
+    /* 建议加上，方便定位 */
     top: 0px;
+    overflow: visible;
+    /* 确保阴影不被切断 */
+    perspective: 1000px;
+    /* 开启 3D 空间感 */
 }
 
-.literature_box_right img {
+/* 内部图片的基础样式 */
+.hover-image-box img {
+    display: block;
     width: 100%;
+    height: auto;
+    border-radius: 0px;
+    /* 核心动画设置 */
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 悬停时的复合动效 */
+.hover-image-box:hover img {
+    /* 向上平移并倾斜，模拟“被揭起”的效果 */
+    transform: translateY(-8px) rotateZ(2deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    /* 阴影变深变散，产生浮空感 */
+}
+
+/* 图片基础样式 (优化版) */
+.hover-image-box img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    /* 轻微圆角，告别锋利直角 */
+
+    /* === 核心修改点：添加边框 === */
+    /* 建议使用米白色 (#FAF9F6) 或浅棕色 (#EAE0D5)，比纯白或纯黑更融入背景 */
+    border: 8px solid #d8cba4;
+
+    /* 增加一个内边距，让图片和边框之间有呼吸感 */
+    padding: 2px;
+    background: #fff;
+    /* 边框下的底色 */
+
+    /* 核心动画设置 (保持原有) */
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    /* 基础淡阴影 */
 }

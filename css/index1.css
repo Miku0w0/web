@@ -1,4 +1,13 @@
 /* <!-- 首页瑶绣专题 --> */
+:root {
+    --main-font: "PingFang SC",
+        "Hiragino Sans GB",
+        "Microsoft YaHei", sans-serif;
+    --title-font: "Source Han Serif CN",
+        "Noto Serif CJK SC",
+        "SimSun", serif;
+}
+
 #Yao_Embroidery_Topic {
     position: relative;
     width: 100%;
@@ -43,7 +52,7 @@
 
 .Yao_Embroidery_list {
     margin-top: 30px;
-    font-family: "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-family: var(--main-font);
 }
 
 /* 卡片样式 + hover 动效 */

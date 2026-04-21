@@ -52,7 +52,7 @@
 
 /* 外层容器字体优化 */
 .Co_create_works_box {
-    font-family: "Helvetica Neue", "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-family: var(--main-font);
 }
 
 /* 卡片 li 样式 + 动画效果 */

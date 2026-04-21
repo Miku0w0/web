@@ -38,7 +38,7 @@
 /* 教学指导外层盒子 */
 #Documents_box {
     width: 100%;
-    font-family: "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-family: var(--main-font);
 }
 
 /* 卡片整体样式 + 动画 */
@@ -226,7 +226,7 @@
     font-size: 14px;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-family: "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-family: var(--main-font);
     font-weight: 500;
     letter-spacing: 1px;
 }

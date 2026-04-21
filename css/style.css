@@ -18,36 +18,51 @@
 
 /* 头部导航栏 */
 header {
-    height: 110px;
-    position: relative;
-    z-index: 99;
+    height: 90px;
+    background-color: #fff;
     border-bottom: 1px solid #C8C8C8;
+    position: sticky;
+    /* 滚动吸顶（可选） */
+    top: 0;
+    z-index: 999;
 }
 
 .heard {
-    width: 1200px;
-    height: 110px;
+    max-width: 1200px;
+    height: 100%;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
 }
 
+/* 左侧 Logo 与 导航组合 */
 .heard_left {
-    float: left;
-    height: 110px;
-}
-
-.logo {
-    float: left;
-    width: 220px;
-    margin-right: 30px;
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 .logo img {
-    width: 100%;
+    height: 80px;
+    /* 稍微缩小一点更精致 */
+    width: auto;
+    display: block;
+    margin-right: 20px;
+    
+    transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+    transform: scale(1.1);
+    /* 悬停时稍微放大，更有动感 */
 }
 
 .heard_right {
     float: right;
     line-height: 110px;
+    margin-left: 350px;
+    transform: translateY(10px);
 }
 
 .heard_right a {
@@ -76,79 +91,161 @@ header {
     color: #999E9C;
 }
 
+/* 导航栏 */
 nav {
     float: left;
     height: 100%;
 }
 
-.rop-down-menu {
-    display: inline-block;
-}
 
 nav ul>li {
     float: left;
     height: 110px;
     line-height: 110px;
-    margin-right: 30px;
-
+    margin-right: 35px;
+    
 }
 
+/* 基础链接样式 */
 nav ul>li>a {
     text-decoration: none;
     color: black;
     font-weight: bolder;
+    position: relative;
+    /* 必须：作为动画线条的定位基准 */
+    padding: 10px 0;
+    transition: color 0.3s ease;
 }
 
+/* 隐藏的初始线条（现代感的核心：伪元素） */
+nav ul>li>a::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    /* 线条距离文字底部的距离 */
+    left: 50%;
+    /* 线条从中心开始 */
+    width: 0;
+    /* 初始宽度为 0 */
+    height: 2px;
+    /* 线条厚度 */
+    background-color: #FF3030;
+    /* 线条颜色 */
+    transition: all 0.3s ease-in-out;
+    /* 动画过渡效果 */
+    transform: translateX(-50%);
+    /* 配合 left:50% 实现中心展开 */
+}
+
+/* 悬停时的联动效果 */
 nav ul>li>a:hover {
     color: #FF3030;
-    text-decoration: underline;
+    /* 文字变色 */
 }
 
-/* 貌似是第二导航栏 */
+nav ul>li>a:hover::after {
+    width: 100%;
+    /* 悬停时宽度撑满，产生向两侧划开的效果 */
+}
+
+/* =============== 第二菜单 =============== */
 .drop-down-menu {
-    width: 64px;
+    position: relative;
+    display: inline-block;
+    height: 100%;
 }
 
 .drop-down-menu>a {
-    color: #000;
-    font-weight: bolder;
+    color: #000 !important;
     text-decoration: none;
+    font-weight: bolder;
+    position: relative;
+        text-decoration: none;
+        padding: 10px 0;
+        transition: color 0.3s ease;
 }
 
 .drop-down-menu:hover>a {
-    color: #FF3030;
-    text-decoration: underline;
-}
-
-.drop-box {
-    display: none;
-}
-
-.rop-down-menu-box:hover .drop-box {
-    display: block;
-    border-top: 4px solid #30c1ff;/* 我觉得改成蓝色更搭^^ */
-    position: relative;
-    top: -10px;
-    background-color: #fff;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-    width: 200px;
-    line-height: 30px;
-}
-
-.drop-box a {
-    display: block;
-    color: #878787;
+    color: #FF3030 !important;
     text-decoration: none;
-    padding: 10px;
-    font-weight: bolder;
+}
+.drop-down-menu:hover>a::after {
+    width: 100%;
+}
+
+/* 修改你原本的 .drop-box 样式 */
+.drop-box {
+    display: block;
+    /* 取消 display:none，改用透明度控制 */
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    /* 初始位置向下偏一点 */
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    /* 使用贝塞尔曲线让动效更丝滑 */
+
+    position: absolute;
+    top: 90px;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    /* 更柔和的投影 */
+    width: 140px;
+    z-index: 1000;
+    border-top: 3px solid #ff3030;
+    border-radius: 0 0 8px 8px;
+    /* 增加底部圆角 */
+}
+
+/* 悬停时显示 */
+.drop-down-menu:hover .drop-box {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    /* 回到原位，产生“滑入”感 */
 }
 
 .drop-box a:hover {
-    color: #000;
-    text-decoration: underline;
+    background-color: #FFF5F5;
+    /* 极浅的红色背景 */
+    color: #FF3030 !important;
+    /* 文字变成品牌红 */
+    padding-left: 30px;
+    /* 悬浮时文字轻轻向右位移，增加动感 */
 }
 
-/* banner栏目 */
+.drop-box a {
+display: block;
+    color: #555 !important; /* 默认深灰色 */
+    text-decoration: none;
+    padding: 15px 25px; /* 增加点击区域 */
+    line-height: 1;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease; /* 颜色切换动画 */
+    border-bottom: 1px solid #f9f9f9; /* 细微的分隔线 */
+}
+
+.drop-down-menu>a::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    /* 线条距离文字底部距离 */
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #FF3030;
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
+}
+
+.drop-down-menu:hover .drop-box {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0); /* 悬浮时回到原位，产生向上滑入的错觉 */
+}
+
+/* banner 栏目 */
 #banner {
     position: relative;
     height: min(66.67vw, 900px);
@@ -172,11 +269,13 @@ nav ul>li>a:hover {
 
 .banner_text {
     width: 700px;
-    color: #222;
+    height: 230px;
+    color: #3a3939;
     float: left;
-    margin-left: 145px;
+    margin-left: 130px;
     margin-top: 145px;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(2px);
      /* 半透明白色背景 */
     padding: 20px;
     border-radius: 10px;
@@ -201,33 +300,88 @@ nav ul>li>a:hover {
     width: 100%;
     height: 100%;
     text-align: center;
-    letter-spacing: 4px;
-    background-color: #FF3030;
+    letter-spacing: 2px;
+    /* 稍微缩减字间距，更有力量感 */
+    background: linear-gradient(45deg, #FF3030, #FF6B6B);
+    /* 增加微渐变，比纯色灵动 */
     color: #fff;
     text-decoration: none;
     line-height: 40px;
-    border-radius: 10px;
+    border-radius: 20px;
+    /* 改为胶囊形状，更柔和现代 */
     margin-top: 20px;
     font-size: 14px;
+    font-weight: bold;
+
+    /* 动感核心：开启过渡动画 */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(255, 48, 48, 0.3);
+    /* 初始发光阴影 */
+    position: relative;
+    overflow: hidden;
+}
+
+/* 悬停时的动效组合 */
+.index_more a:hover {
+    transform: translateY(-3px);
+    /* 向上轻微浮起 */
+    box-shadow: 0 8px 25px rgba(255, 48, 48, 0.5);
+    /* 阴影加深，产生距离感 */
+    background: linear-gradient(45deg, #FF4545, #FF8282);
+    /* 颜色略微变亮 */
+    letter-spacing: 4px;
+    /* 字符间距拉开，产生“撑开”的张力 */
+}
+
+/* 增加一个点击时的反馈 */
+.index_more a:active {
+    transform: translateY(1px);
+    /* 点击时按下 */
+    box-shadow: 0 2px 10px rgba(255, 48, 48, 0.2);
 }
 
 .index-img {
     position: absolute;
     top: 90px;
-    right: clamp(16px, 4vw, 90px);
+    right: -100px;
+        /* 固定距离右边 30 像素 */
     width: 260px;
     max-width: 30vw;
     height: auto;
     margin: 0;
     z-index: 2;
     cursor: pointer;
-    overflow: hidden;
+    overflow: visible;
+    /* 必须改为 visible，否则阴影会被切断 */
+
+    transition: all 0.4s ease;
+    /* 为下面的悬停动效做铺垫 */
+    /* 1. 修改为米白色背景 */
+        background: #FDF5E6;
+        /* OldLace 米色，或者用 #FAF9F6 */
+    
+        /* 2. 优化边框：稍微深一点点的米色边框，增加实物感 */
+        border: 1px solid #E5DBCF;
+    
+        /* 3. 增加内填充 */
+        padding: 12px;
+    
+        /* 4. 优化阴影：使用带一点棕红色的深影，让它和背景的暗部更和谐 */
+        box-shadow: 12px 12px 25px rgba(74, 44, 28, 0.2);
+    
+        border-radius: 8px;
+        transform: rotate(2deg);
+        transition: all 0.4s ease;
+
+        mix-blend-mode: normal;
 }
 
 .index-img img {
     width: 100%;
     height: auto;
     display: block;
+    border-radius: 6px;
+        /* 让里面的九宫格小图也有轻微圆角 */
 }
 
 /* 遮罩层样式 */
@@ -237,11 +391,20 @@ nav ul>li>a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.2);
-    /* 黑色半透明遮罩 */
+    /* 将遮罩层也加上圆角 */
+    border-radius: 12px;
+    /* 建议把rgba的0.2调浅到0.1，或者去掉，因为现在有阴影了 */
+    background: rgba(0, 0, 0, 0.1);
     pointer-events: none;
 }
 
+/* === 2. 交互优化点 (可选) === */
+.index-img:hover {
+    transform: rotate(0deg) scale(1.05);
+    /* 悬停时角度回正，并稍微放大 */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    /* 阴影变深，感觉离背景更远了 */
+}
 
 /* 底部版权信息 */
 footer {
@@ -306,19 +469,22 @@ footer {
     background: url(../images/banner2.png) no-repeat;
     background-size: cover;
     background-position: center;
+    justify-content: center; /* 垂直居中 */
+    align-items: center; /* 水平居中 */
+    text-align: center;
     color: #fff;
 }
 
 
 .banner2 h3 {
-    padding-left: 800px;
+    padding-left: 0px;
     line-height: 80px;
-    color: #812918;
+    color: #F5F5DC;
     font-size: 30px;
 }
 
 .banner2 p {
-    padding-left: 840px;
+    padding-left: 20px;
     color: #000;
     /* 修改为纯白色提高对比度 */
     font-size: 20px;
